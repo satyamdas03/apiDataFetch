@@ -1,0 +1,110 @@
+// import React, { useEffect, useState } from "react";
+// import axios from "axios";
+
+// const fetch = () => {
+//   return axios
+//     .get("https://randomuser.me/api")
+//     .then(({ data }) => {
+//       return data;
+//     })
+//     .catch((err) => {
+//       console.error(err);
+//     });
+// };
+
+// const getFullUserName = (userInfo) => {
+//   const {
+//     name: { first, last }
+//   } = userInfo;
+//   return `${first} ${last}`;
+// };
+
+// function App() {
+//   const [input, setInput] = useState("");
+//   const [randomJSON, setJSON] = useState("");
+//   const [arr, setArr] = useState([]);
+//   const [userInfos, setUserInfo] = useState([]);
+//   function handleChange(e) {
+//     setInput(e.target.value);
+//   }
+//   function addItem() {
+//     setArr((i) => {
+//       return [...i, input];
+//     });
+//     setInput("");
+//   }
+//   useEffect(() => {
+//     fetch().then((randomData) => {
+//       setJSON(JSON.stringify(randomData));
+//       setUserInfo(randomData.results);
+//     });
+//   }, []);
+//   return (
+//     <div>
+//       <input
+//         type="text"
+//         placeholder="enter api"
+//         value={input}
+//         onChange={handleChange}
+//       />
+//       <button onClick={addItem}>ADD</button>
+//       <div>
+//         {arr.map((i) => {
+//           return <div>{i}</div>;
+//         })}
+//       </div>
+//       <div>
+//         API fetched data
+//         <p>{randomJSON}</p>
+//         {userInfos.map((ui) => {
+//           return (
+//             <p>
+//               {getFullUserName(ui)}
+//               <img src={ui.picture.thumbnail} />
+//             </p>
+//           );
+//         })}
+//       </div>
+//     </div>
+//   );
+// }
+// export default App;
+
+/// USING GET BITTON TO FETCH DATA
+/*import React, { useState } from "react";
+import axios from "axios";
+
+function App() {
+  const [randomJSON, setJSON] = useState("");
+  const [isLoading, setLoading] = useState(false);
+
+  function fetchAPI() {
+    setLoading(true);
+    axios
+      .get("https://randomuser.me/api")
+      .then(({ data }) => {
+        setJSON(JSON.stringify(data));
+      })
+      .catch((err) => {
+        console.error(err);
+      })
+      .finally(() => {
+        setLoading(false);
+      });
+  }
+
+  return (
+    <div>
+      <button onClick={fetchAPI}>GET</button>
+      {isLoading ? (
+        <p>Loading...</p>
+      ) : (
+        <div>
+          <p>{randomJSON}</p>
+        </div>
+      )}
+    </div>
+  );
+}
+
+export default App;*/
